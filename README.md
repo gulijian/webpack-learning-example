@@ -333,11 +333,9 @@ img2.src = require('./assets/img2.png')
 <body>
      <!-- size < 30kb -->
      <img id="img1"/>
-
-    <!-- size > 30kb -->
-    <img id="img2">
-    
-    <script src="./dist/app.bundle.js"></script>
+     <!-- size > 30kb -->
+     <img id="img2">
+     <script src="./dist/app.bundle.js"></script>
 </body>
 </html>
 ```
