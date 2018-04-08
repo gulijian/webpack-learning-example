@@ -1,9 +1,71 @@
 # webpack-learning-example
 webpck@3.9.0 核心模块学习
 
+### chapter4-1([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-1))
+
+style-loader use
+
+##### app.js
+
+```js
+import './css/app.css'
+```
+
+##### app.css
+
+```Css
+html {
+    background: #00bcd4b5;
+}
+```
+
+##### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+##### webpack.config.js
+
+```Js
+var path = require('path')
+
+module.exports = {
+    entry: {
+        'app': './src/app.js'
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        filename: '[name].bundle.js'
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 
 
-#### chapter4-3 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-3))
+
+### chapter4-3 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-3))
 
 css-loader and css-module use
 
