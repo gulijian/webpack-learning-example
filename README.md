@@ -233,5 +233,69 @@ module.exports = {
 }	
 ```
 
+### chapter5-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-3))
+
+JS Tree-shaking  use
+
+##### util.js
+
+```Js
+export function a (){
+    return 'this is a';
+}
+
+export function b (){
+    return 'this is b';
+}
+
+export function c (){
+    return 'this is c';
+}
+```
+
+##### app.js
+
+```Js
+import { a } from './common/util.js'
+
+console.log(a())
+```
+
+##### index.html
+
+```Html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+#####  webpack.config.js
+
+```Js
+var webpack = require('webpack')
+var path = require('path')
+
+module.exports = {
+    entry: {
+        'app': './src/app.js',
+        
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        filename: '[name].bundle.js'
+    },
+
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ]
+}
+```
+
+> app.js 中只使用了 util.js 中的 a 函数 打包的时候只会打包 a 函数；因为 b 和  c 函数没有使用到，则不会被打包
+
 
 
