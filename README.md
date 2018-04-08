@@ -303,6 +303,8 @@ module.exports = {
 
 ### chapter6-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter6-1))
 
+url-loader use
+
 ##### app.js
 
 ```Js
@@ -365,8 +367,9 @@ module.exports = {
 ```
 
 > 图片 小于 30kb 会变成base64编码，大于 30kb 会生成图片地址
->
-> <img id="img1" src="6443347e97d394b23b05746b2fe41cd1.jpg">
->
-> <img id="img2" src="data:img/png;base64,iVBORhzAowe">
+
+```html
+<img id="img1" src="6443347e97d394b23b05746b2fe41cd1.jpg">
+<img id="img2" src="data:image/png;base64,iVBORw0KGgoAXBIWXMAAC4jAAAuIwF4pT92AAAKTWlD"/>
+```
 
