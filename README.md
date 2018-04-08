@@ -22,6 +22,8 @@ webpck@3.9.0 核心模块学习
 
 style-loader use
 
+> 处理css，以<style>标签形式引入css
+
 ##### app.js
 
 ```js
@@ -83,6 +85,8 @@ module.exports = {
 ### chapter4-2 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-2))
 
 style-loader/url use
+
+> 处理css，以<link>标签形式引入css
 
 ##### app.js
 
@@ -153,6 +157,8 @@ module.exports = {
 ### chapter4-3 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-3))
 
 css-loader and css-module use
+
+> 处理css，支持 css-module 形式
 
 ##### app.js
 
@@ -239,7 +245,9 @@ module.exports = {
 
 ### chapter5-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter5-1))
 
-JS Tree-shaking  use
+UglifyJsPlugin  use
+
+> 使用 **UglifyJsPlugin** 插件； 不打包没有使用的 js
 
 ##### util.js
 
@@ -304,6 +312,8 @@ module.exports = {
 ### chapter6-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter6-1))
 
 url-loader use
+
+> 图片文件处理
 
 ##### app.js
 
