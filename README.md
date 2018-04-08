@@ -63,7 +63,75 @@ module.exports = {
 }
 ```
 
+### chapter4-2([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-2))
 
+style-loader/url use
+
+##### app.js
+
+```Js
+import './css/app.css'
+```
+
+##### app.css
+
+```Css
+html {
+    background: #00bcd4b5;   
+}
+
+#styleLoaderUrl {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+```
+
+#### index.html
+
+```Html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <span id="styleLoaderUrl"> hello style-loader/url</span>
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+##### webpak.config.js
+
+````Js
+var path = require('path')
+
+module.exports = {
+    entry: {
+        'app': './src/app.js'
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        publicPath: './dist/',
+        filename: '[name].bundle.js'
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader/url'
+                    },
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
+            }
+        ]
+    }
+}
+````
 
 ### chapter4-3 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-3))
 
