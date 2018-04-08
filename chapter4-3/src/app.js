@@ -1,9 +1,9 @@
-import base from './css/base.css'
+import app1 from './css/app1.css'
 
-import common from  './css/common.css'
+import app2 from  './css/app2.css'
 
 var app = document.getElementById('app');
 
 // 使用样式
-app.innerHTML = '<div class = "'+base.box+'"></div>'
+app.innerHTML = '<div class = "'+app1.box+'"></div>'
 

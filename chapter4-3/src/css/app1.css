@@ -1,8 +1,8 @@
 .box {
-    composes: borderBox from './common.css';
+    composes: borderBox from './app2.css';
     height: 200px;
     width: 200px;
     border-radius: 4px;
-    background: #e61313;
+    background: #76d4e0ab;
     margin: 0 auto;
 }
