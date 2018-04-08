@@ -14,6 +14,8 @@ webpck@3.9.0 核心模块学习
 
 [Css-loader And Css-Module](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter4-3-source)
 
+[Js Tree-shaking](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter5-1-source)
+
 ### chapter4-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-1))
 
 style-loader use
