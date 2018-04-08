@@ -16,6 +16,8 @@ webpck@3.9.0 核心模块学习
 
 [Js Tree-shaking](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter5-1-source)
 
+[Url-loader](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter6-1-source)
+
 ### chapter4-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-1))
 
 style-loader use
@@ -235,7 +237,7 @@ module.exports = {
 }	
 ```
 
-### chapter5-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-3))
+### chapter5-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter5-1))
 
 JS Tree-shaking  use
 
@@ -299,5 +301,72 @@ module.exports = {
 
 > app.js 中只使用了 util.js 中的 a 函数 打包的时候只会打包 a 函数；因为 b 和  c 函数没有使用到，则不会被打包
 
+### chapter6-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter6-1))
 
+##### app.js
+
+```Js
+var img1 = document.getElementById('img1')
+var img2 = document.getElementById('img2')
+
+img1.src = require('./assets/img1.jpg')
+img2.src = require('./assets/img2.png')
+```
+
+##### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+     <!-- size < 30kb -->
+     <img id="img1"/>
+
+    <!-- size > 30kb -->
+    <img id="img2">
+    
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+##### webpack.config.js
+
+```js
+var path = require('path')
+
+module.exports = {
+
+    entry: {
+        'app': './src/app.js',
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        filename: '[name].bundle.js'
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader:'url-loader',
+                        options: {
+                            limit: 30000
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+> 图片 小于 30kb 会变成base64编码，大于 30kb 会生成图片地址
+>
+> <img id="img1" src="6443347e97d394b23b05746b2fe41cd1.jpg">
+>
+> <img id="img2" src="data:img/png;base64,iVBORhzAowe">
 
