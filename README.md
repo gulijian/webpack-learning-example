@@ -1,27 +1,27 @@
-**webpck@3.9.0 核心模块学习**
+####webpck@3.9.0 core module learning
 
-## 如何使用
+## How to use
 
-安装 webpack
+Install webpack
 
 ```bash
 $ npm i -g webpack
 ```
 
-下载代码
+Clone the repo.
 
 ```bash
 $ git clone https://github.com/gulijian/webpack-learning-example.git
 ```
 
-安装依赖
+Install the dependencies
 
 ```bash
 # 进入每个章节根目录，执行 npm install 
 $ npm install 
 ```
 
-打开章节下的 index.html
+Open the each chapter  index.html
 
 ## Index
 
