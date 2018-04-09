@@ -18,6 +18,8 @@ webpck@3.9.0 核心模块学习
 
 [Url-loader](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter6-1-source)
 
+[ProvidePlugin](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter7-1-source)
+
 ### chapter4-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-1))
 
 style-loader use
@@ -380,4 +382,90 @@ module.exports = {
 <img id="img1" src="6443347e97d394b23b05746b2fe41cd1.jpg">
 <img id="img2" src="data:image/png;base64,iVBORw0KGgoAXBIWXMAAC4jAAAuIwF4pT92AAAKTWlD"/>
 ```
+
+### chapter7-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter7-1))
+
+ProvidePlugin use
+
+> 处理第三方 JS 库，方式一：（ jquery 作为npm的一个module）
+
+##### app.js
+
+```js
+$('#app').append('hello jquery')
+```
+
+##### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="app"></div>
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+##### webpack.config.js
+
+```js
+var path = require('path')
+var webpack = require('webpack')
+
+module.exports = {
+    entry: {
+        'app': './src/app.js',
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        filename: '[name].bundle.js'
+    },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        })
+    ]
+}
+```
+
+### chapter7-2 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter7-2))
+
+> 处理第三方 JS 库，方式二：（引入本地的 jquery 库）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
