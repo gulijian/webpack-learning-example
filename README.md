@@ -10,7 +10,7 @@
 $ npm i -g webpack
 ```
 
-下载代码：
+下载代码
 
 ```bash
 $ git clone https://github.com/gulijian/webpack-learning-example.git
