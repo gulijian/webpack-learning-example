@@ -1,0 +1,1 @@
+$('#app').append('hello jquery, import by local jquert.min.js')

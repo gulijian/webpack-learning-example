@@ -1,1 +1,1 @@
-$('#app').append('hello jquery')
+$('#app').append('hello jquery,import by jquert npm module')

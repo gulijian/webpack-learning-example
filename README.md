@@ -435,7 +435,54 @@ module.exports = {
 
 > 处理第三方 JS 库，方式二：（引入本地的 jquery 库）
 
+##### app.js
 
+```js
+$('#app').append('hello jquery')
+```
+
+##### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="app"></div>
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+##### webpack.config.js
+
+```js
+var path = require('path')
+var webpack = require('webpack')
+
+module.exports = {
+    entry: {
+        'app': './src/app.js',
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        filename: '[name].bundle.js'
+    },
+
+    // 注意 jquery$ 的名字 要和 ProvidePlugin 插件中配置的名称（jquery）保持一致
+    resolve: {
+        alias: {
+            jquery$: path.resolve(__dirname,'src/libs/jquery.min.js')
+        }
+    },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        })
+    ]
+}
+```
 
 
 
