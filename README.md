@@ -20,6 +20,8 @@ webpck@3.9.0 核心模块学习
 
 [ProvidePlugin](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter7-1-source)
 
+[Clean-webpack-plugin](https://github.com/gulijian/webpack-learning-example/blob/master/README.md#chapter8-1-source)
+
 ### chapter4-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter4-1))
 
 style-loader use
@@ -484,9 +486,57 @@ module.exports = {
 }
 ```
 
+> 如果 jquery 在CDN上，直接引入即可
 
+### chapter8-1 ([source](https://github.com/gulijian/webpack-learning-example/tree/master/chapter8-1))
 
+clean-webpack-plugin use
 
+> 每次打包清除原先的打包目录
+
+##### app.js
+
+```js
+var app = document.getElementById('app')
+
+app.innerHTML = '<h1>使用 clean-webpack-plugin 插件，可以每次打包清除原先的打包目录</h1>'
+```
+
+##### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <span id="app"></span>
+    <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
+```
+
+##### webpack.config.js
+
+```js
+var path = require('path')
+var CleanWebpackPlugin = require('clean-webpack-plugin')
+
+module.exports = {
+    entry: {
+        'app': './src/app.js',
+    },
+
+    output: {
+        path: path.resolve(__dirname,'./dist/'),
+        filename: '[name].bundle.js'
+    },
+
+    plugins: [
+       new CleanWebpackPlugin([
+           'dist'
+       ])
+    ]
+}
+```
 
 
 
